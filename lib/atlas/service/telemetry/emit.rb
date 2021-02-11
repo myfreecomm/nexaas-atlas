@@ -5,6 +5,7 @@ module Atlas
     module Telemetry
       class Emit
         include Atlas::Util::I18nScope
+        include Atlas::Util::Sanitizer
 
         def initialize(adapter)
           @adapter = adapter
@@ -16,7 +17,7 @@ module Atlas
 
           return invalid_parameters unless valid_params(context, type, data)
           Concurrent::Future.execute do
-            @adapter.log(type, data.merge(context.to_event))
+            @adapter.log(type, sanitize(data.merge(context.to_event)))
           end
           ServiceResponse.new(data: {}, code: Enum::ErrorCodes::NONE)
         end

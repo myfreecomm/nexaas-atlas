@@ -4,6 +4,8 @@ module Atlas
   module API
     module Middleware
       class ResponseTelemetryMiddleware
+        include Atlas::Util::Sanitizer
+
         def initialize(app, telemetry_service)
           @app = app
           @telemetry_service = telemetry_service
@@ -50,11 +52,12 @@ module Atlas
         end
 
         def request_keys(env)
-          url = Rack::Request.new(env).url
+          url    = Rack::Request.new(env).url
+          params = env['router.params'] || {}
 
           {
             request: "#{env['REQUEST_METHOD']} #{url}",
-            params: env['router.params'] || {}
+            params: sanitize(params)
           }
         end
 
