@@ -1,4 +1,18 @@
-Documentation:
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+AllCops:
+  UseCache: false
+  TargetRubyVersion: 2.5
+  DisplayCopNames: true
+  Exclude:
+    - 'Rakefile'
+    - 'spec/spec_helper.rb'
+    - 'spec/factories/*.rb'
+    - 'vendor/**/*'
+
+Style/Documentation:
   Enabled: false
 
 Metrics/LineLength:
@@ -16,18 +30,11 @@ Metrics/MethodLength:
 Style/RegexpLiteral:
   Enabled: false
 
-Layout/IndentArray:
+Layout/FirstArrayElementIndentation:
   Enabled: false
 
-Layout/IndentHash:
+Layout/FirstHashElementIndentation:
   Enabled: false
-
-AllCops:
-  TargetRubyVersion: 2.4
-  DisplayCopNames: true
-  Exclude:
-    - 'spec/factories/*.rb'
-    - 'vendor/**/*'
 
 Lint/AmbiguousBlockAssociation:
   Exclude:
