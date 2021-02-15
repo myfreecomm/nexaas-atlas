@@ -57,7 +57,7 @@ module Atlas
 
           {
             request: "#{env['REQUEST_METHOD']} #{url}",
-            params: sanitize(params)
+            params: params
           }
         end
 
