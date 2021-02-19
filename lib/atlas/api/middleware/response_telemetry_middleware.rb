@@ -4,7 +4,6 @@ module Atlas
   module API
     module Middleware
       class ResponseTelemetryMiddleware
-        include Atlas::Util::Sanitizer
 
         def initialize(app, telemetry_service)
           @app = app

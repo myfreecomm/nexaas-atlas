@@ -5,5 +5,4 @@ module Util
   require_relative 'util/gzip_yield_stream'
   require_relative 'util/i18n_scope'
   require_relative 'util/yield_stream'
-  require_relative 'util/sanitize'
 end
