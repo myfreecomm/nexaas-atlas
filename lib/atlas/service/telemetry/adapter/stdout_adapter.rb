@@ -23,7 +23,8 @@ module Atlas
           private
 
           def filter_data(data)
-            return data unless filter || data[:params]
+            return data unless filter
+            return data unless data[:params]
 
             filter.call(data)
           end
