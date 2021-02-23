@@ -1,6 +1,7 @@
 # Atlas
 
-[![Build Status](https://github.com/myfreecomm/pdvend-atlas/workflows/ci/badge.svg?branch=master)][Continuous Integration]
+![Build Status](https://github.com/myfreecomm/pdvend-atlas/workflows/CI/badge.svg)
+![Coverage](.github/workflows/support/badge.svg)
 
 Atlas é a base para os serviços da PDVend. Oferece várias facilidades para cada camada da aplicação.
 
