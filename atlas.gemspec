@@ -9,10 +9,10 @@ require 'atlas/version'
 Gem::Specification.new do |spec|
   spec.name     = 'atlas'
   spec.version  = Atlas::VERSION
-  spec.authors  = ['PDVend Team']
-  spec.email    = ['team-pdvend@nexaas.com']
-  spec.summary  = "PDVend's service's base platform"
-  spec.homepage = 'https://github.com/myfreecomm/pdvend-atlas'
+  spec.authors  = ['Nexaas Team']
+  spec.email    = ['comercial@nexaas.com']
+  spec.summary  = 'Ruby framework based on Hanami and dry-rb'
+  spec.homepage = 'https://github.com/myfreecomm/nexaas-atlas'
 
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
