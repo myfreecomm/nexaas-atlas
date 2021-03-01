@@ -9,3 +9,4 @@
 .byebug_history
 tmp/*
 !tmp/.gitkeep
+*.swp

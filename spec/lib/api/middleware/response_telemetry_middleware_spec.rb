@@ -44,7 +44,7 @@ RSpec.describe Atlas::API::Middleware::ResponseTelemetryMiddleware, type: :middl
 
       context 'when the body is a proxy' do
         let(:body) { Rack::BodyProxy.new('Proxy!') }
-        let(:expected_data) { { type: :http_response, data: { status: 200, length: 6, params: {}, request: ' ://::0' } } }
+        let(:expected_data) { { type: :http_response, data: { status: 200, length: 6, params: {}, request: ' ://' } } }
 
         it { expect { subject }.to_not raise_error }
         it do
@@ -55,7 +55,7 @@ RSpec.describe Atlas::API::Middleware::ResponseTelemetryMiddleware, type: :middl
 
       context 'when the body is a enumerable' do
         let(:body) { ['Enumerable'] }
-        let(:expected_data) { { type: :http_response, data: { status: 200, length: 10, params: {}, request: ' ://::0' } } }
+        let(:expected_data) { { type: :http_response, data: { status: 200, length: 10, params: {}, request: ' ://' } } }
 
         it { expect { subject }.to_not raise_error }
 
@@ -78,7 +78,7 @@ RSpec.describe Atlas::API::Middleware::ResponseTelemetryMiddleware, type: :middl
           {
             type: :http_response,
             data: {
-              request: ' ://::0',
+              request: ' ://',
               status: nil,
               length: nil,
               params: {},

@@ -83,8 +83,10 @@ module Atlas
 
         shared_examples_for('invoke service') do
           it do
-            expect { subject }
-              .to invoke(service_mock, :execute).with(any_args, expected_invoke_params)
+            expect { subject }.to invoke(service_mock, :execute).with(
+              any_args,
+              expected_invoke_params.try(:except, :REQUEST_METHOD)
+            )
           end
         end
 

@@ -15,9 +15,11 @@ module Atlas
           data = event.try(:[], :data)
 
           return invalid_parameters unless valid_params(context, type, data)
+
           Concurrent::Future.execute do
             @adapter.log(type, data.merge(context.to_event))
           end
+
           ServiceResponse.new(data: {}, code: Enum::ErrorCodes::NONE)
         end
 
@@ -25,11 +27,18 @@ module Atlas
 
         def invalid_parameters
           message = I18n.t(:invalid_parameters, scope: i18n_scope)
-          ServiceResponse.new(message: message, data: {}, code: Enum::ErrorCodes::PARAMETER_ERROR)
+
+          ServiceResponse.new(
+            message: message,
+            data: {},
+            code: Enum::ErrorCodes::PARAMETER_ERROR
+          )
         end
 
         def valid_params(context, type, data)
-          context.is_a?(Service::RequestContext) && type.is_a?(Symbol) && data.is_a?(Hash)
+          context.is_a?(Service::RequestContext) &&
+            type.is_a?(Symbol) &&
+            data.is_a?(Hash)
         end
       end
     end

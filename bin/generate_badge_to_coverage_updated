@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+ruby -rnet/http -rjson -e \
+  'File.open(".github/workflows/support/badge.svg", "w") do |file|
+     json         = File.read("coverage/.last_run.json")
+     coverage     = JSON.parse(json)["result"]["line"]
+     coverage_uri = URI(
+       "https://badgen.net/badge/icon/#{coverage}%25/green?icon=codecov&label=%7C%20coverage"
+     )
+     file << Net::HTTP.get(coverage_uri)
+  end'
