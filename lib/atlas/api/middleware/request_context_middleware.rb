@@ -11,6 +11,7 @@ module Atlas
         UNKNOWN_COMPONENT = '[Unknown Component]'
         CALLER_ID_FROM_ENV = ->(env) { env[CALLER_HEADER_NAME] || env[REMOTE_ADDR_KEY] }
         TRANSACTION_ID_FROM_ENV = ->(env) { env[TRANSACTION_HEADER_NAME] || SecureRandom.uuid }
+        DEVICE_ENV = ->(env) { env[DEVICE] }
 
         def initialize(app)
           @app = app
@@ -29,6 +30,7 @@ module Atlas
             component: UNKNOWN_COMPONENT,
             caller: CALLER_ID_FROM_ENV[env],
             transaction_id: TRANSACTION_ID_FROM_ENV[env],
+            device: DEVICE_ENV[env],
             account_id: nil
           )
         end
