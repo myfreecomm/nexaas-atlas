@@ -1,6 +1,9 @@
 # CHANGELOG
 
-### [0.21.0] - 2021-02-23
+### [0.22.0] - 12/01/2022
+- Change context to be able to receive device info
+
+### [0.21.0] - 23/02/2021
 - Updated dependencies and informations of gem on gemspec
 - Fixed broken specs
 - Update rules from Rubocop linter

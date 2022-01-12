@@ -10,7 +10,7 @@ Atlas é a base para os serviços do Nexaas.Omni. Oferece várias facilidades pa
 Adicione esta linha ao `Gemfile` da sua aplicação:
 
 ```ruby
-gem 'atlas', '0.21.0', git: 'git@github.com:myfreecomm/nexaas-atlas.git'
+gem 'atlas', '0.22.0', git: 'git@github.com:myfreecomm/nexaas-atlas.git'
 ```
 
 Então execute:
@@ -30,4 +30,3 @@ bundle
 ## Contribuindo
 
 Bugs reports e pull requests são bem vindos no GitHub em https://github.com/myfreecomm/nexaas-atlas. Este projeto pretende ser um espaço seguro e acolhedor para a colaboração, e os contribuintes devem aderir ao código de conduta [Covenant Covenant] (http://contributor-covenant.org).
-
